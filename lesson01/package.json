@@ -1,0 +1,13 @@
+{
+  "name": "homework",
+  "version": "0.0.1",
+  "main": "test.html",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "gulp": "3.x",
+    "gulp-clean": "0.x",
+    "run-sequence": "1.x"
+  }
+}
