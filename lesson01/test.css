@@ -1,0 +1,8 @@
+p {
+    width: 600px;
+}
+
+.stripedTables {
+    background: #CCC;
+    list-style-type: none;
+}
