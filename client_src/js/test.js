@@ -9,16 +9,33 @@ $( document ).ready(function () {
     var compiledPostsTable = Handlebars.compile(templatePostsTable);
 
     Handlebars.registerHelper('json', function (str) {
-        return JSON.stringify(Data.getPosts().slice(0,3), null, 2);
+        return JSON.stringify(str.slice(0,3), null, 2);
+    });
+
+    Handlebars.registerHelper('table', function (items, options) {
+        var out = "<ul>";
+        for(var i=0, l=items.length; i<l; i++) {
+            out = out + "<li>" + options.fn(items[i]) + "</li>";
+        }
+        return out + "</ul>";
     });
 
 
+
     renderPostsJSON();
-    // renderPostsTable();
+    renderPostsTable();
 
     function renderPostsJSON() {
         var html = compiledPostsJSON({posts: Data.getPosts()});
         jQuery('.posts-json').html('<pre>'+html+'</pre>');
     }
+     function renderPostsTable() {
+        var html = compiledPostsTable({posts: Data.getPosts()});
+        jQuery('.posts-table').html(html);
+    }
+
+
+
+
     
 });
