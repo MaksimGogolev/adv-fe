@@ -27,11 +27,11 @@ $( document ).ready(function () {
 
     function renderPostsJSON() {
         var html = compiledPostsJSON({posts: Data.getPosts()});
-        jQuery('.posts-json').html('<pre>'+html+'</pre>');
+        $('.posts-json').html('<pre>'+html+'</pre>');
     }
      function renderPostsTable() {
         var html = compiledPostsTable({posts: Data.getPosts()});
-        jQuery('.posts-table').html(html);
+        $('.posts-table').html(html);
     }
 
 
