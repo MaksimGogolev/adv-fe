@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Handlebars</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <div class="posts-json"></div>
+    <div class="posts-table"></div>
+
+
+    <script type="text/x-handlebars-template" id="posts-json-template">{{json posts}}
+    </script>
+    <script type="text/x-handlebars-template" id="posts-table-template">
+        {{#table posts}}
+            {{description}}
+        {{/table}}
+    </script>
+
+
+
+<script src="libs/jquery/dist/jquery.js"></script>
+<script src="libs/handlebars/handlebars.js"></script>
+<script src="js/data.js"></script>
+<script src="js/test.js"></script>
+
+
+</body>
+</html>
