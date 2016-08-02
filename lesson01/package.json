@@ -1,7 +1,7 @@
 {
   "name": "homework",
   "version": "0.0.1",
-  "main": "app.js",
+  "main": "test.html",
   "scripts": {
     "start": "node app.js"
   },
