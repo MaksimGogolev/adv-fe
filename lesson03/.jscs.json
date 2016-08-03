@@ -135,5 +135,7 @@
       "mark": "'",
       "escape": true
     },
-    "requireSpacesInsideObjectBrackets": "all"
+    "requireSpacesInsideObjectBrackets": {
+        "allExcept": [ "}", ")" ]
+    }
 }

@@ -8,20 +8,20 @@
     "gulp-bower": "^0.0.13",
     "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.6.0",
-    "gulp-csscomb": "^3.0.6",
+    "gulp-csscomb": "^3.0.7",
     "gulp-cssnano": "^2.1.2",
     "gulp-debug": "*",
-    "gulp-htmlhint": "^0.3.0",
+    "gulp-htmlhint": "^0.3.1",
     "gulp-if": "^1.2.5",
-    "gulp-jscs": "^1.6.0",
-    "gulp-jshint": "^1.11.2",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jshint": "^2.0.1",
     "gulp-less": "^3.1.0",
-    "gulp-livereload": "^3.8.1",
     "gulp-sourcemaps": "^1.5.1",
     "gulp-uglify": "^2.0.0",
     "less": "^2.7.1",
     "run-sequence": "^1.1.5",
     "yargs": "^4.1.0",
-    "gulp-htmlmin": "^2.0.0"
+    "gulp-htmlmin": "^2.0.0",
+    "browser-sync": "^2.14.0 "
   }
 }
