@@ -23,6 +23,7 @@
     "yargs": "^4.1.0",
     "gulp-htmlmin": "^2.0.0",
     "browser-sync": "^2.14.0 ",
-    "gulp-gitmodified": "^1.1.1"
+    "gulp-gitmodified": "^1.1.1",
+    "gulp-imagemin": "^3.0.2"
   }
 }

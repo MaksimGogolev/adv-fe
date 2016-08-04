@@ -19,6 +19,7 @@ var htmlmin = require('gulp-htmlmin');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var gitmodified = require('gulp-gitmodified');
+var imagemin = require('gulp-imagemin');
 
 gulp.task('bower', function () {
     return bower();
@@ -35,6 +36,7 @@ gulp.task('libs', function () {
 
 gulp.task('images', function () {
     return gulp.src(['client_src/**/*.{png,jpg,svg}', '!client_src/libs/**/*.*'])
+        .pipe(imagemin())
         .pipe(gulp.dest(destDir));
 });
 
@@ -93,7 +95,7 @@ gulp.task('default', ['libs', 'build', 'watch','serve']);
 //CODESTYLE
 gulp.task('csscomb', function () {
     return gulp.src(['client_src/**/*.less', '!client_src/libs/**/*.*'])
-        .pipe(gulpif(!argv.all,gitmodified('modified')))
+        .pipe(gulpif(!argv.all,gitmodified(['added', 'modified'])))
         .pipe(csscomb().on('error', handleError))
         .pipe(gulp.dest(function (file) {
             return file.base;
@@ -102,14 +104,14 @@ gulp.task('csscomb', function () {
 
 gulp.task('htmlhint', function () {
     return gulp.src(['client_src/**/*.html', '!client_src/libs/**/*.*'])
-        .pipe(gulpif(!argv.all,gitmodified('modified')))
+        .pipe(gulpif(!argv.all,gitmodified(['added', 'modified'])))
         .pipe(htmlhint('.htmlhintrc'))
         .pipe(htmlhint.reporter());
 });
 
 gulp.task('jscs', function () {
     return gulp.src(['client_src/**/*.js', '!client_src/libs/**/*.*'])
-        .pipe(gulpif(!argv.all,gitmodified('modified')))
+        .pipe(gulpif(!argv.all,gitmodified(['added', 'modified'])))
         .pipe(jscs({fix: true}))
         .pipe(jscs.reporter())
         .pipe(gulp.dest('client_src'));
@@ -117,7 +119,7 @@ gulp.task('jscs', function () {
 
 gulp.task('jshint', function () {
     return gulp.src(['client_src/**/*.js', '!client_src/libs/**/*.*'])
-        .pipe(gulpif(!argv.all,gitmodified('modified')))
+        .pipe(gulpif(!argv.all,gitmodified(['added', 'modified'])))
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
