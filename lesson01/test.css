@@ -1,9 +1,8 @@
-ul {
-    list-style-type: none;
+p {
     width: 600px;
 }
 
-li:nth-child(even) {
+.stripedTables {
     background: #CCC;
     list-style-type: none;
 }

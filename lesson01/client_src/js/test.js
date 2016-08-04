@@ -12,15 +12,12 @@ $( document ).ready(function () {
         return JSON.stringify(str.slice(0,3), null, 2);
     });
 
-    Handlebars.registerHelper('table', function (items, options) {
-        var out = "<ul>";
-        for(var i=0, l=items.length; i<l; i++) {
-            out = out + "<li>" + options.fn(items[i]) + "</li>";
-        }
-        return out + "</ul>";
+    Handlebars.registerHelper('table', function (context, options) {
+        return context.map(function (item,i) {
+                var str = i%2?'':' class = stripedTables';
+                return '<p' + str + '>' + options.fn(item) + '</p>';
+            });
     });
-
-
 
     renderPostsJSON();
     renderPostsTable();
@@ -33,9 +30,4 @@ $( document ).ready(function () {
         var html = compiledPostsTable({posts: Data.getPosts()});
         $('.posts-table').html(html);
     }
-
-
-
-
-    
 });

@@ -1,0 +1,6 @@
+**/**
+!lesson01/**
+!lesson03/**
+!.gitignore
+!README.md
+lesson01/client_src/libs/**
