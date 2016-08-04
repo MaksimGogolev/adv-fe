@@ -14,7 +14,7 @@ $( document ).ready(function () {
 
     Handlebars.registerHelper('table', function (context, options) {
         return context.map(function (item,i) {
-                return '<p' + i%2?'':' class = stripedTables' + '>'
+                return '<p' + (i%2?'':' class = stripedTables') + '>'
                     + options.fn(item) + '</p>';
             }).join('');
     });
