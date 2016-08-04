@@ -8,15 +8,15 @@ $( document ).ready(function () {
     var compiledPostsJSON = Handlebars.compile(templatePostsJSON);
     var compiledPostsTable = Handlebars.compile(templatePostsTable);
 
-    Handlebars.registerHelper('json', function (str) {
-        return JSON.stringify(str.slice(0,3), null, 2);
+    Handlebars.registerHelper('json', function (items) {
+        return JSON.stringify(items.slice(0,3), null, 2);
     });
 
     Handlebars.registerHelper('table', function (context, options) {
         return context.map(function (item,i) {
-                var str = i%2?'':' class = stripedTables';
-                return '<p' + str + '>' + options.fn(item) + '</p>';
-            });
+                return '<p' + i%2?'':' class = stripedTables' + '>'
+                    + options.fn(item) + '</p>';
+            }).join('');
     });
 
     renderPostsJSON();
