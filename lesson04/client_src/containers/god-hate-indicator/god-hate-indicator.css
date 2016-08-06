@@ -1,0 +1,6 @@
+.god-hate-indicator {
+    margin: 30px 10px;
+}
+    &__label {
+        font-weight: 900;
+    }
