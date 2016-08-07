@@ -11,7 +11,7 @@ var wrap = require( 'gulp-wrap' );
 var declare = require( 'gulp-declare' );
 var runSequence = require('run-sequence');
 var browserify = require( 'gulp-browserify' );
-var ctCreator = require( 'ct-creator' );
+// var ctCreator = require( 'ct-creator' );
 
 var DEST_DIR = 'client_build';
 var DEST_LIBS_DIR = DEST_DIR + '/libs';
@@ -54,7 +54,7 @@ gulp.task('bower', function() {
 });
 
 gulp.task('concat-component-css', function () {
-    return gulp.src(CLIENT_DIR + '/**/*.css' )
+    return gulp.src(CLIENT_DIR + '/**/*.{css,less}' )
         .pipe(concat('components.css'))
         .pipe(less())
         .pipe(gulp.dest(DEST_DIR));
@@ -79,7 +79,7 @@ gulp.task('clean-build', function (cb) {
    
 gulp.task('watch', function () {
     livereload.listen();
-    gulp.watch(CLIENT_DIR + '/**/*.@(html|js|css|hbs)', ['build-and-reload']); 
+    gulp.watch(CLIENT_DIR + '/**/*.@(html|js|css|hbs|less)', ['build-and-reload']);
 });
 
 gulp.task('build-and-reload', ['build'], function () {
@@ -87,11 +87,11 @@ gulp.task('build-and-reload', ['build'], function () {
         .pipe(livereload());
 });
 
-// Compoment creator
-gulp.task('component', function () {
-    ctCreator.create('client_src/components', argv.name);
-});
-gulp.task('container', function () {
-    ctCreator.create('client_src/containers/', argv.name);
-});
+// // Compoment creator
+// gulp.task('component', function () {
+//     ctCreator.create('client_src/components', argv.name);
+// });
+// gulp.task('container', function () {
+//     ctCreator.create('client_src/containers/', argv.name);
+// });
 

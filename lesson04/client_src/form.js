@@ -1,3 +1,3 @@
-var GodGiftForm = require('containers/god-gift-form/god-gift-form.js');
+var Game = require('containers/game/game.js');
 
-$('.content').html(new GodGiftForm().render().elem);
+$('.content').html(new Game().render().elem);

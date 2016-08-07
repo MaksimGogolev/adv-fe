@@ -1,0 +1,44 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+a {
+    color: #127287;
+}
+
+.button {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;
+    margin: 2px;
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 3px;
+    background: white;
+    border: solid 1px #E4BCBC;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+.button:hover {
+    background: #C36969;
+    color: white;
+    border: solid 1px #C36969;
+}
+
+.layout{
+    background: url('/ra.jpg') no-repeat fixed center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.content {
+    opacity: 0.9;
+    padding: 20px;
+    background: white;
+}
+
