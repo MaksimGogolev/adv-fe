@@ -1,4 +1,5 @@
 var destDir = 'bin';
+var excludedLibsPath = '!client_src/libs/**/*.*';
 var gulp = require('gulp');
 var bower = require('gulp-bower');
 var gulpif = require('gulp-if');
@@ -35,19 +36,19 @@ gulp.task('libs', function () {
 });
 
 gulp.task('images', function () {
-    return gulp.src(['client_src/**/*.{png,jpg,svg}', '!client_src/libs/**/*.*'])
+    return gulp.src(['client_src/**/*.{png,jpg,svg}', excludedLibsPath])
         .pipe(imagemin())
         .pipe(gulp.dest(destDir));
 });
 
 gulp.task('html', function () {
-    return gulp.src(['client_src/**/*.html', '!client_src/libs/**/*.*'])
+    return gulp.src(['client_src/**/*.html', excludedLibsPath])
         .pipe(gulpif(argv.prod, htmlmin({collapseWhitespace: true})))
         .pipe(gulp.dest(destDir));
 });
 
 gulp.task('css', function () {
-    return gulp.src(['client_src/**/*.less', '!client_src/libs/**/*.*'])
+    return gulp.src(['client_src/**/*.less', excludedLibsPath])
         .pipe(gulpif(!argv.prod, sourcemaps.init()))
         .pipe(concat('styles.css'))
         .pipe(less())
@@ -61,7 +62,7 @@ gulp.task('css', function () {
 });
 
 gulp.task('js', function () {
-    return gulp.src(['client_src/**/*.js', '!client_src/libs/**/*.*'])
+    return gulp.src(['client_src/**/*.js', excludedLibsPath])
         .pipe(gulpif(!argv.prod, sourcemaps.init()))
         .pipe(concat('script.js'))
         .pipe(uglify())
@@ -76,10 +77,10 @@ gulp.task( 'clean', function () {
 
 
 gulp.task( 'watch', function () {
-    gulp.watch(['client_src/**/*.less', '!client_src/libs/**/*.*'], [ 'css' ] );
-    gulp.watch(['client_src/**/*.{png,jpg,svg}', '!client_src/libs/**/*.*'], [ 'images' ] );
-    gulp.watch(['client_src/**/*.html', '!client_src/libs/**/*.*'], [ 'html' ] );
-    gulp.watch(['client_src/**/*.js', '!client_src/libs/**/*.*'], [ 'js' ] );
+    gulp.watch(['client_src/**/*.less', excludedLibsPath], [ 'css' ] );
+    gulp.watch(['client_src/**/*.{png,jpg,svg}', excludedLibsPath], [ 'images' ] );
+    gulp.watch(['client_src/**/*.html', excludedLibsPath], [ 'html' ] );
+    gulp.watch(['client_src/**/*.js', excludedLibsPath], [ 'js' ] );
 });
 
 gulp.task( 'serve', function () {
@@ -94,7 +95,7 @@ gulp.task('default', ['libs', 'build', 'watch','serve']);
 
 //CODESTYLE
 gulp.task('csscomb', function () {
-    return gulp.src(['client_src/**/*.less', '!client_src/libs/**/*.*'])
+    return gulp.src(['client_src/**/*.less', excludedLibsPath])
         .pipe(gulpif(!argv.all,gitmodified(['added', 'modified'])))
         .pipe(csscomb().on('error', handleError))
         .pipe(gulp.dest(function (file) {
@@ -103,14 +104,14 @@ gulp.task('csscomb', function () {
 });
 
 gulp.task('htmlhint', function () {
-    return gulp.src(['client_src/**/*.html', '!client_src/libs/**/*.*'])
+    return gulp.src(['client_src/**/*.html', excludedLibsPath])
         .pipe(gulpif(!argv.all,gitmodified(['added', 'modified'])))
         .pipe(htmlhint('.htmlhintrc'))
         .pipe(htmlhint.reporter());
 });
 
 gulp.task('jscs', function () {
-    return gulp.src(['client_src/**/*.js', '!client_src/libs/**/*.*'])
+    return gulp.src(['client_src/**/*.js', excludedLibsPath])
         .pipe(gulpif(!argv.all,gitmodified(['added', 'modified'])))
         .pipe(jscs({fix: true}))
         .pipe(jscs.reporter())
@@ -118,7 +119,7 @@ gulp.task('jscs', function () {
 });
 
 gulp.task('jshint', function () {
-    return gulp.src(['client_src/**/*.js', '!client_src/libs/**/*.*'])
+    return gulp.src(['client_src/**/*.js', excludedLibsPath])
         .pipe(gulpif(!argv.all,gitmodified(['added', 'modified'])))
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
