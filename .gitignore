@@ -1,5 +1,4 @@
-**/**
-!lesson01/**
-!.gitignore
-!README.md
-lesson01/client_src/libs/**
+**/client_src/libs/**
+**/node_modules/**
+**/bin/**
+**/client_build/**
