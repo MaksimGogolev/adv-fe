@@ -1,4 +1,4 @@
 **/client_src/libs/**
 **/node_modules/**
 **/bin/**
-**/client_src/**
+**/client_build/**
