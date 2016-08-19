@@ -1,0 +1,16 @@
+{
+  "name": "my-blog",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "okonkwo <nickolas.shishov@yandex.ua>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/okonkwo/advanced-fe",
+  "moduleType": [],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "handlebars": "^3.0.0",
+    "fetch": "~1.0.0"
+  }
+}
