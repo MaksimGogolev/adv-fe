@@ -1,12 +1,8 @@
 {
-  "name": "my-blog",
+  "name": "lesson07.1",
   "description": "",
-  "main": "index.html",
-  "authors": [
-    "okonkwo <nickolas.shishov@yandex.ua>"
-  ],
+  "main": "test.html",
   "license": "MIT",
-  "homepage": "https://github.com/okonkwo/advanced-fe",
   "moduleType": [],
   "dependencies": {
     "jquery": "~2.1.4",

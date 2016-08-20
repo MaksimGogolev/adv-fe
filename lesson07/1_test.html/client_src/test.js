@@ -32,7 +32,7 @@ $(document).ready(function () {
     })
     .then(function (json) {
         var comments = [...json.comments];
-        var html = '<p>'
+        var html = '<p>';
         Promise.all(
             json.comments.map(function (comment) {
                 return fetch(USERS_URL+ comment.user);

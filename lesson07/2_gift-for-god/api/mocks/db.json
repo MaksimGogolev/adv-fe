@@ -1,0 +1,10 @@
+{
+    "wealth": {
+        "resources": [
+            {"name": "gold", "count": 20, "hateCurrency": 5},
+            {"name": "copper", "count": 13, "hateCurrency": 2},
+            {"name": "water", "count": 100, "hateCurrency": 1},
+            {"name": "kefir", "count": 20, "hateCurrency": 10}
+        ]
+    }
+}

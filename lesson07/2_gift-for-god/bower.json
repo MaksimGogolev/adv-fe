@@ -1,0 +1,8 @@
+{
+  "name": "maks--gl",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "handlebars": "^3.x.x",
+    "fetch": "~1.0.0"
+  }
+}

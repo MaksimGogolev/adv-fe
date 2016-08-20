@@ -11,7 +11,6 @@ app.get('/test',function (req, res) {
     res.sendFile(path.join(__dirname, CLIENT_PATH, '/test.html'));
 });
 
-// for example, we can use jsonServer for mocking
 app.use('/json-server', jsonServer.router('api/mocks/db.json'));
 
 app.use('/', express.static(path.join(__dirname, CLIENT_PATH, '/')));
