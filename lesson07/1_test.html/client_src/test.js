@@ -22,17 +22,19 @@ $(document).ready(function () {
             return sum + post.likeCount;
         },0);
         $('.content-countLike').html('Count of like: '+likeCountAll);
-    })
+    });
 
     fetch(POSTS_URL + '466')
     .then(function (res) {
         return res.json();
     })
     .then(function (json) {
-        var comments = [...json.comments];
-        var html = '';
+        RenderCommentsWithUserName([...json.comments]);
+    });
+
+    function RenderCommentsWithUserName (comments){
         Promise.all(
-            json.comments.map(function (comment) {
+            comments.map(function (comment) {
                 return fetch(USERS_URL+ comment.user);
             })
         )
@@ -42,10 +44,10 @@ $(document).ready(function () {
             }));
         })
         .then(function (results) {
-            html += results.reduce(function (html, result, commentIndex) {
+            var html = results.reduce(function (html, result, commentIndex) {
                 return html + result.name + ': ' + comments[commentIndex].text + '; '
             },html);
             $('.content-comments').html(html);
         })
-    })
+    }
 });
