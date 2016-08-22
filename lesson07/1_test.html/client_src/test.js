@@ -11,10 +11,7 @@ $(document).ready(function () {
         },
         body: '{"likeCount":8}'
     })
-    .then(function (res) {
-        return res.json();
-    })
-    .then(function (json) {
+    .then(function () {
         return fetch(POSTS_URL);
     })
     .then(function (res) {
