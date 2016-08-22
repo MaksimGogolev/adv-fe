@@ -24,15 +24,16 @@ $(document).ready(function () {
         var likeCountAll = json.reduce(function (sum,post) {
             return sum + post.likeCount;
         },0);
-        $('.content').append('<p>Count of like: '+likeCountAll+'</p>');
-        return fetch(POSTS_URL + '466');
+        $('.content-countLike').html('Count of like: '+likeCountAll);
     })
+
+    fetch(POSTS_URL + '466')
     .then(function (res) {
         return res.json();
     })
     .then(function (json) {
         var comments = [...json.comments];
-        var html = '<p>';
+        var html = '';
         Promise.all(
             json.comments.map(function (comment) {
                 return fetch(USERS_URL+ comment.user);
@@ -46,8 +47,8 @@ $(document).ready(function () {
         .then(function (results) {
             html += results.reduce(function (html, result, commentIndex) {
                 return html + result.name + ': ' + comments[commentIndex].text + '; '
-            },html) + '</p>';
-            $('.content').append(html);
+            },html);
+            $('.content-comments').html(html);
         })
     })
 });
