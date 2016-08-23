@@ -1,0 +1,12 @@
+{
+  "name": "lesson07.1",
+  "description": "",
+  "main": "test.html",
+  "license": "MIT",
+  "moduleType": [],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "handlebars": "^3.0.0",
+    "fetch": "~1.0.0"
+  }
+}
