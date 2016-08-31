@@ -1,0 +1,7 @@
+.gift-tunner {
+    margin: 10px;
+    &__name {
+        display: inline-block;
+    }
+}
+

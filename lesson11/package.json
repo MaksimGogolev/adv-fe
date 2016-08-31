@@ -1,0 +1,49 @@
+{
+  "name": "adv2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "gulp dev & node app.js"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "browserify-istanbul": "^2.0.0",
+    "ct-creator": "*",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-bower": "^0.0.13",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-csscomb": "^3.0.6",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-declare": "^0.3.0",
+    "gulp-handlebars": "^4.0.0",
+    "gulp-if": "^1.2.5",
+    "gulp-less": "^3.0.5",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-webdriver": "^2.0.1",
+    "gulp-wrap": "^0.11.0",
+    "istanbul": "^0.4.3",
+    "karma": "^0.13.22",
+    "karma-browserify": "^5.0.5",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs-prebuilt": "2.1.7",
+    "run-sequence": "^1.1.5",
+    "selenium-standalone": "^5.1.0",
+    "watchify": "^3.7.0",
+    "wdio-dot-reporter": "0.0.5",
+    "wdio-jasmine-framework": "^0.2.1",
+    "wdio-junit-reporter": "0.0.2",
+    "webdriverio": "^4.0.9",
+    "yargs": "^4.1.0"
+  }
+}

@@ -1,0 +1,7 @@
+.happiness {
+    width: 100px;
+    height: 100px;
+    background-image: url('/cat.gif');
+    position: absolute;
+    background-size: cover;
+}
