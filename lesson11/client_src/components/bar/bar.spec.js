@@ -1,20 +1,14 @@
 var Bar = require('./bar');
 
 describe('bar', function () {
-    beforeAll(function () {
+    beforeEach(function () {
         this.modelMock = jasmine.createSpyObj('model', ['getCount', 'subscribe']);
         this.count = 30;
         this.modelMock.getCount.and.returnValue(this.count);
-        this.elemForEqual = $('<div></div>').html(App.templates['bar']({
-            progress: Array(this.count)
-        }));
-    });
-
-    beforeEach(function () {
         this.bar = new Bar({
             model: this.modelMock
         });
-        spyOn(this.bar, 'render');
+        spyOn(this.bar, 'render').and.callThrough();
         spyOn(this.bar, 'getCount').and.callThrough();
     });
 
@@ -30,6 +24,10 @@ describe('bar', function () {
         expect(this.modelMock.subscribe).toHaveBeenCalled();
     });
 
+    it('model.subscribe should be called once', function () {
+        expect(this.modelMock.subscribe.calls.count()).toBe(1);
+    });
+
     it('model.getCount should be called', function () {
         expect(this.modelMock.getCount).toHaveBeenCalled();
     });
@@ -42,8 +40,8 @@ describe('bar', function () {
         expect(this.bar.elem).toEqual($('<div></div>'));
     });
 
-    it('elem at the end should be equal elemForEqual', function () {
+    it('elem at the end should be equal #*this.count', function () {
         this.bar.render();
-        expect(this.bar.elem.innerHTML).toEqual(this.elemForEqual.innerHTML);
+        expect(this.bar.elem.text().trim()).toEqual(Array(this.count+1).join('#'));
     });
 });
