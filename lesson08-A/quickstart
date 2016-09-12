@@ -1,0 +1,46 @@
+#!/bin/bash 
+
+export NODE_PATH=.
+#export NODE_ENV=production
+RUN=false
+BUILD=false
+NODE_DEV=false
+DEV=false
+for i in "$@"
+do 
+    case $i in
+    run)
+        RUN=true
+        ;;
+    build)
+        BUILD=true
+        ;;
+    node-dev)
+        NODE_DEV=true
+        ;;
+    dev)
+        DEV=true
+        ;;
+esac
+done
+
+if [ $BUILD = true ] 
+then
+    gulp build 
+fi
+
+if [ $RUN = true ]
+then
+    gulp watch& npm start 
+fi
+
+if [ $NODE_DEV = true ]
+then
+    supervisor app.js
+fi
+
+if [ $DEV = true ]
+then
+    gulp build& gulp watch& supervisor app.js
+fi
+
